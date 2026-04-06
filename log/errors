@@ -1,0 +1,2 @@
+Mar  9 18:13:43 :: SYSERR: Can't read from 'etc/time' time file.
+SYSERR: bind: Address already in use
