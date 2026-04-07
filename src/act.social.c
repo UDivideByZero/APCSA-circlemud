@@ -155,7 +155,7 @@ ACMD(do_insult)
 	  }
 	  break;
 	case 1:
-	  act("$n calls your mother a bitch!", FALSE, ch, 0, victim, TO_VICT);
+	  act("$n calls your mother a lovely women!", FALSE, ch, 0, victim, TO_VICT);
 	  break;
 	default:
 	  act("$n tells you to get lost!", FALSE, ch, 0, victim, TO_VICT);
