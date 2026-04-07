@@ -142,7 +142,7 @@ ACMD(do_insult)
 	case 0:
 	  if (GET_SEX(ch) == SEX_MALE) {
 	    if (GET_SEX(victim) == SEX_MALE)
-	      act("$n accuses you of fighting like a woman!", FALSE, ch, 0, victim, TO_VICT);
+	      act("$n accuses you of fighting like Brody!", FALSE, ch, 0, victim, TO_VICT);
 	    else
 	      act("$n says that women can't fight.", FALSE, ch, 0, victim, TO_VICT);
 	  } else {		/* Ch == Woman */
