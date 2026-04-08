@@ -282,10 +282,10 @@ void make_corpse(struct char_data *ch)
   IN_ROOM(corpse) = NOWHERE;
   corpse->name = strdup("corpse");
 
-  snprintf(buf2, sizeof(buf2), "The corpse of %s is lying here.", GET_NAME(ch));
+  snprintf(buf2, sizeof(buf2), "The blown out corpse of %s is lying here.", GET_NAME(ch));
   corpse->description = strdup(buf2);
 
-  snprintf(buf2, sizeof(buf2), "the corpse of %s", GET_NAME(ch));
+  snprintf(buf2, sizeof(buf2), "the blown out corpse of %s", GET_NAME(ch));
   corpse->short_description = strdup(buf2);
 
   GET_OBJ_TYPE(corpse) = ITEM_CONTAINER;
@@ -350,7 +350,7 @@ void death_cry(struct char_data *ch)
 {
   int door;
 
-  act("Your blood freezes as you hear $n's death cry.", FALSE, ch, 0, 0, TO_ROOM);
+  act("Your dih freezes as you hear $n's death cry.", FALSE, ch, 0, 0, TO_ROOM);
 
   for (door = 0; door < NUM_OF_DIRS; door++)
     if (CAN_GO(ch, door))
@@ -689,7 +689,7 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
 
   /* peaceful rooms */
   if (ch != victim && ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) {
-    send_to_char(ch, "This room just has such a peaceful, easy feeling...\r\n");
+    send_to_char(ch, "This room just has such a peaceful, easy feeling cause your here...\r\n");
     return (0);
   }
 
@@ -789,7 +789,7 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
       send_to_char(victim, "That really did HURT!\r\n");
 
     if (GET_HIT(victim) < (GET_MAX_HIT(victim) / 4)) {
-      send_to_char(victim, "%sYou wish that your wounds would stop BLEEDING so much!%s\r\n",
+      send_to_char(victim, "%sYou wish that your holes would stop BLEEDING so much!%s\r\n",
 		CCRED(victim, C_SPR), CCNRM(victim, C_SPR));
       if (ch != victim && MOB_FLAGGED(victim, MOB_WIMPY))
 	do_flee(victim, NULL, 0, 0);

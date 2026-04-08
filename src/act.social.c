@@ -150,7 +150,7 @@ ACMD(do_insult)
 	      act("$n accuses you of having the smallest... (brain?)",
 		  FALSE, ch, 0, victim, TO_VICT);
 	    else
-	      act("$n tells you that you'd lose a beauty contest against a troll.",
+	      act("$n tells you that you'd lose a beauty contest against Janet.",
 		  FALSE, ch, 0, victim, TO_VICT);
 	  }
 	  break;
