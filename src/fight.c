@@ -984,7 +984,7 @@ void perform_violence(void)
     }
 
     if (GET_POS(ch) < POS_FIGHTING) {
-      send_to_char(ch, "You can't fight while sitting!!\r\n");
+      send_to_char(ch, "You can't fight from your knees!!\r\n");
       continue;
     }
 
