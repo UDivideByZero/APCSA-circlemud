@@ -410,8 +410,8 @@ const char *container_bits[] = {
 const char *drinks[] =
 {
   "water",
-  "beer",
-  "wine",
+  "root beer",
+  "special grape juice",
   "ale",
   "dark ale",
   "whisky",
