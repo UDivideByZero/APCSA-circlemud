@@ -781,7 +781,7 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
     break;
   case POS_DEAD:
     act("$n is dead!  R.I.P.", FALSE, victim, 0, 0, TO_ROOM);
-    send_to_char(victim, "You are dead!  Sorry...\r\n");
+    send_to_char(victim, "You are dead!  Better luck next time.\r\n");
     break;
 
   default:			/* >= POSITION SLEEPING */
@@ -984,7 +984,7 @@ void perform_violence(void)
     }
 
     if (GET_POS(ch) < POS_FIGHTING) {
-      send_to_char(ch, "You can't fight while sitting!!\r\n");
+      send_to_char(ch, "You can't fight from your knees!!\r\n");
       continue;
     }
 
