@@ -351,7 +351,8 @@
 #define ITEM_ANTI_CLERIC   (1 << 13)	/* Not usable by clerics	*/
 #define ITEM_ANTI_THIEF	   (1 << 14)	/* Not usable by thieves	*/
 #define ITEM_ANTI_WARRIOR  (1 << 15)	/* Not usable by warriors	*/
-#define ITEM_NOSELL	   (1 << 16)	/* Shopkeepers won't touch it	*/
+#define ITEM_ANTI_NECROMANCER (1 << 16) /* Not usable by necromancers */
+#define ITEM_NOSELL	   (1 << 17)	/* Shopkeepers won't touch it	*/
 
 
 /* Modifier constants used with obj affects ('A' fields) */

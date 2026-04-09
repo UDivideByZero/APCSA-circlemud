@@ -50,6 +50,7 @@ const char *class_abbrevs[] = {
   "Cl",
   "Th",
   "Wa",
+  "Nm",
   "\n"
 };
 
@@ -59,6 +60,7 @@ const char *pc_class_types[] = {
   "Cleric",
   "Thief",
   "Warrior",
+  "Necromancer",
   "\n"
 };
 
@@ -70,7 +72,8 @@ const char *class_menu =
 "  [C]leric\r\n"
 "  [T]hief\r\n"
 "  [W]arrior\r\n"
-"  [M]agic-user\r\n";
+"  [M]agic-user\r\n"
+"  [N]ecromancer\r\n";
 
 
 
@@ -88,6 +91,7 @@ int parse_class(char arg)
   case 'c': return CLASS_CLERIC;
   case 'w': return CLASS_WARRIOR;
   case 't': return CLASS_THIEF;
+  case 'n': return CLASS_NECROMANCER;
   default:  return CLASS_UNDEFINED;
   }
 }
@@ -141,12 +145,12 @@ bitvector_t find_class_bitvector(const char *arg)
 /* #define MIN_PER_PRAC		2  min percent gain in skill per practice */
 /* #define PRAC_TYPE		3  should it say 'spell' or 'skill'?	*/
 
-int prac_params[4][NUM_CLASSES] = {
-  /* MAG	CLE	THE	WAR */
-  { 95,		95,	85,	80	},	/* learned level */
-  { 100,	100,	12,	12	},	/* max per practice */
-  { 25,		25,	0,	0	},	/* min per practice */
-  { SPELL,	SPELL,	SKILL,	SKILL	},	/* prac name */
+int prac_params[5][NUM_CLASSES] = {
+  /* MAG	CLE	THE	WAR NEC */
+  { 95,		95,	85,	80, 95	},	/* learned level */
+  { 100,	100,	12,	12, 100	},	/* max per practice */
+  { 25,		25,	0,	0, 25	},	/* min per practice */
+  { SPELL,	SPELL,	SKILL,	SKILL, SPELL	},	/* prac name */
 };
 
 
