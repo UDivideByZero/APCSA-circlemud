@@ -146,11 +146,11 @@ bitvector_t find_class_bitvector(const char *arg)
 /* #define PRAC_TYPE		3  should it say 'spell' or 'skill'?	*/
 
 int prac_params[5][NUM_CLASSES] = {
-  /* MAG	CLE	THE	WAR NEC */
-  { 95,		95,	85,	80, 95	},	/* learned level */
-  { 100,	100,	12,	12, 100	},	/* max per practice */
-  { 25,		25,	0,	0, 25	},	/* min per practice */
-  { SPELL,	SPELL,	SKILL,	SKILL, SPELL	},	/* prac name */
+  /* MAG	CLE	THE	WAR */
+  { 95,		95,	85,	80},	/* learned level */
+  { 100,	100,	12,	12},	/* max per practice */
+  { 25,		25,	0,	0},	/* min per practice */
+  { SPELL,	SPELL,	SKILL,	SKILL},	/* prac name */
 };
 
 
