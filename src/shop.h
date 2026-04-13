@@ -75,6 +75,7 @@ struct shop_data {
 #define TRADE_NOCLERIC		(1 << 4)
 #define TRADE_NOTHIEF		(1 << 5)
 #define TRADE_NOWARRIOR		(1 << 6)
+#define TRADE_NONECROMANCER (1 << 7)
 
 
 struct stack_data {
@@ -121,6 +122,7 @@ struct stack_data {
 #define NOTRADE_CLERIC(i)	(IS_SET(SHOP_TRADE_WITH((i)), TRADE_NOCLERIC))
 #define NOTRADE_THIEF(i)	(IS_SET(SHOP_TRADE_WITH((i)), TRADE_NOTHIEF))
 #define NOTRADE_WARRIOR(i)	(IS_SET(SHOP_TRADE_WITH((i)), TRADE_NOWARRIOR))
+#define NOTRADE_NECROMANCER(i) (IS_SET(SHOP_TRADE_WITH(i)), TRADE_NONECROMANCER))
 
 
 
