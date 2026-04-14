@@ -361,6 +361,7 @@ const char *extra_bits[] = {
   "ANTI_THIEF",
   "ANTI_WARRIOR",
   "NO_SELL",
+  "ANTI_NECROMANCER",
   "\n"
 };
 
