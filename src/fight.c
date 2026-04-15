@@ -563,9 +563,10 @@ void dam_message(int dam, struct char_data *ch, struct char_data *victim,
     },
 
     {
-      "$n dodges $N 's attack!!",	/* (9: dodge)   */
-      "You dodge $N 's attack!!",
-      "$n dodged your attack!!"
+      "$N dodges $n's #w!!", /* (9: dodge)   */
+	  "$N dodged your #w!!",
+      "You dodge $n's #w!!"
+      
     }
   };
 
@@ -773,7 +774,7 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
           int prob = (GET_SKILL(ch, SKILL_DODGE) / 4);
           if (prob >= percent) 
           {
-            dam_message(dam, ch, victim, attacktype, 1);
+            dam_message(dam, ch, victim, attacktype, DEFENSE_DODGE);
           }
         } else {
         dam_message(dam, ch, victim, attacktype, 0);
