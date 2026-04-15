@@ -102,7 +102,7 @@
 #define SKILL_STEAL                 139 /* Reserved Skill[] DO NOT CHANGE */
 #define SKILL_TRACK		    140 /* Reserved Skill[] DO NOT CHANGE */
 /* New skills may be added here up to MAX_SKILLS (200) */
-
+#define SKILL_DODGE       141
 
 /*
  *  NON-PLAYER AND OBJECT SPELLS AND SKILLS
@@ -144,8 +144,12 @@
 /* new attack types can be added here - up to TYPE_SUFFERING */
 #define TYPE_SUFFERING		     399
 
+/*Defense Types*/
+#define DEFENSE_NONE  0
+#define DEFENSE_DODGE 1
+#define DEFENSE_PARRY 2 /*unimplemented*/
 
-
+/*saving throws*/
 #define SAVING_PARA   0
 #define SAVING_ROD    1
 #define SAVING_PETRI  2

@@ -1005,5 +1005,6 @@ void mag_assign_spells(void)
   skillo(SKILL_SNEAK, "sneak");
   skillo(SKILL_STEAL, "steal");
   skillo(SKILL_TRACK, "track");
+  skillo(SKILL_DODGE, "dodge");
 }
 
