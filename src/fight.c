@@ -42,7 +42,7 @@ int ok_damage_shopkeeper(struct char_data *ch, struct char_data *victim);
 
 /* local functions */
 void perform_group_gain(struct char_data *ch, int base, struct char_data *victim);
-void dam_message(int dam, struct char_data *ch, struct char_data *victim, int w_type);
+void dam_message(int dam, struct char_data *ch, struct char_data *victim, int w_type, int def);
 void appear(struct char_data *ch);
 void load_messages(void);
 void free_messages(void);
@@ -495,7 +495,7 @@ char *replace_string(const char *str, const char *weapon_singular, const char *w
 
 /* message for doing damage with a weapon */
 void dam_message(int dam, struct char_data *ch, struct char_data *victim,
-		      int w_type)
+		      int w_type, int def)
 {
   char *buf;
   int msgnum;
@@ -560,13 +560,20 @@ void dam_message(int dam, struct char_data *ch, struct char_data *victim,
       "$n OBLITERATES $N with $s deadly #w!!",	/* 8: > 23   */
       "You OBLITERATE $N with your deadly #w!!",
       "$n OBLITERATES you with $s deadly #w!!"
+    },
+
+    {
+      "$N dodges $n's #w!!", /* (9: dodge)   */
+	  "$N dodged your #w!!",
+      "You dodge $n's #w!!"
+      
     }
   };
 
 
   w_type -= TYPE_HIT;		/* Change to base of table with text */
-
-  if (dam == 0)		msgnum = 0;
+  if(def == 1)    msgnum = 9;
+  else if (dam == 0)		msgnum = 0;
   else if (dam <= 2)    msgnum = 1;
   else if (dam <= 4)    msgnum = 2;
   else if (dam <= 6)    msgnum = 3;
@@ -759,9 +766,19 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
   else {
     if (GET_POS(victim) == POS_DEAD || dam == 0) {
       if (!skill_message(dam, ch, victim, attacktype))
-	dam_message(dam, ch, victim, attacktype);
+	      dam_message(dam, ch, victim, attacktype, 0);
     } else {
-      dam_message(dam, ch, victim, attacktype);
+        //dodge skill avoids weapon damage
+        if(GET_SKILL(ch, SKILL_DODGE)) {	
+          int percent = rand_number(1, 100);
+          int prob = (GET_SKILL(ch, SKILL_DODGE) / 4);
+          if (prob >= percent) 
+          {
+            dam_message(dam, ch, victim, attacktype, DEFENSE_DODGE);
+          }
+        } else {
+        dam_message(dam, ch, victim, attacktype, 0);
+      }
     }
   }
 
