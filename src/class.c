@@ -1693,6 +1693,7 @@ void init_spell_levels(void)
   spell_level(SKILL_STEAL, CLASS_THIEF, 4);
   spell_level(SKILL_HIDE, CLASS_THIEF, 5);
   spell_level(SKILL_TRACK, CLASS_THIEF, 6);
+  spell_level(SKILL_DODGE, CLASS_THIEF, 8);
 
   /* WARRIORS */
   spell_level(SKILL_KICK, CLASS_WARRIOR, 1);
