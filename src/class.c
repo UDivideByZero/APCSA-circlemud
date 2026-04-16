@@ -1616,6 +1616,9 @@ int invalid_class(struct char_data *ch, struct obj_data *obj)
   if (OBJ_FLAGGED(obj, ITEM_ANTI_THIEF) && IS_THIEF(ch))
     return TRUE;
 
+  if (OBJ_FLAGGED(obj, ITEM_ANTI_NECROMANCER) && IS_NECROMANCER(ch))
+	  return TRUE;
+
   return FALSE;
 }
 
