@@ -954,6 +954,10 @@ void mag_assign_spells(void)
 	TAR_CHAR_ROOM, FALSE, MAG_AFFECTS,
 	"Your feet seem less buoyant.");
 
+  spello(SPELL_AURA, "aura", 50, 30, 2, POS_STANDING,
+	TAR_CHAR_ROOM, FALSE, MAG_AFFECTS,
+	"The magical aura fades.");
+
   spello(SPELL_WORD_OF_RECALL, "word of recall", 20, 10, 2, POS_FIGHTING,
 	TAR_CHAR_ROOM, FALSE, MAG_MANUAL,
 	NULL);
