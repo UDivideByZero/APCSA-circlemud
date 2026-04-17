@@ -76,6 +76,7 @@ struct shop_data {
 #define TRADE_NOTHIEF		(1 << 5)
 #define TRADE_NOWARRIOR		(1 << 6)
 #define TRADE_NONECROMANCER (1 << 7)
+#define TRADE_NORANGER     (1 << 8)
 
 
 struct stack_data {
