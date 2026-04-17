@@ -444,6 +444,16 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     to_room = "$n is surrounded by a white aura.";
     break;
 
+  case SPELL_AURA:
+    af[0].location = APPLY_SAVING_SPELL;
+    af[0].modifier = -2;
+    af[0].duration = 6;
+
+    accum_duration = TRUE;
+    to_vict = "A protective aura surrounds you.";
+    to_room = "$n is surrounded by a protective aura.";
+    break;
+
   case SPELL_SLEEP:
     if (!pk_allowed && !IS_NPC(ch) && !IS_NPC(victim))
       return;

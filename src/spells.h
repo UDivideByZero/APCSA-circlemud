@@ -88,6 +88,7 @@
 #define SPELL_INFRAVISION	     50 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_WATERWALK		     51 /* Reserved Skill[] DO NOT CHANGE */
 /* Insert new spells here, up to MAX_SPELLS */
+#define SPELL_AURA		     52
 #define MAX_SPELLS		    130
 
 /* PLAYER SKILLS - Numbered from MAX_SPELLS+1 to MAX_SKILLS */
