@@ -1,5 +1,4 @@
 *.o
-*.obj
 *.exe
 src/*.o
 src/util/*.o
