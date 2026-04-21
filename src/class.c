@@ -91,7 +91,7 @@ int parse_class(char arg)
   case 'c': return CLASS_CLERIC;
   case 'w': return CLASS_WARRIOR;
   case 't': return CLASS_THIEF;
-  case "r": return CLASS_RANGER;
+  case 'r': return CLASS_RANGER;
   default:  return CLASS_UNDEFINED;
   }
 }
