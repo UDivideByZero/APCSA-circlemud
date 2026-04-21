@@ -769,9 +769,10 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
 	      dam_message(dam, ch, victim, attacktype, 0);
     } else {
         //dodge skill avoids weapon damage
-        if(GET_SKILL(ch, SKILL_DODGE)) {	
+		//dodge is player-only for now
+        if(!IS_NPC(victim) && GET_SKILL(victim, SKILL_DODGE)) {	
           int percent = rand_number(1, 100);
-          int prob = (GET_SKILL(ch, SKILL_DODGE) / 4);
+          int prob = (GET_SKILL(victim, SKILL_DODGE) / 4);
           if (prob >= percent) 
           {
             dam_message(dam, ch, victim, attacktype, DEFENSE_DODGE);
