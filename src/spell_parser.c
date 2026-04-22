@@ -958,6 +958,10 @@ void mag_assign_spells(void)
 	TAR_CHAR_ROOM, FALSE, MAG_MANUAL,
 	NULL);
 
+  spello(SPELL_CHAIN_LIGHTNING, "chain lightning", 70, 45, 3, POS_FIGHTING,
+  TAR_IGNORE, TRUE, MAG_AREAS, 
+  NULL);  
+
 
   /* NON-castable spells should appear below here. */
 
