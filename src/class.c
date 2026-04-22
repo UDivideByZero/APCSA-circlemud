@@ -50,6 +50,7 @@ const char *class_abbrevs[] = {
   "Cl",
   "Th",
   "Wa",
+  "Ra",
   "\n"
 };
 
@@ -59,6 +60,7 @@ const char *pc_class_types[] = {
   "Cleric",
   "Thief",
   "Warrior",
+  "Ranger",
   "\n"
 };
 
@@ -70,7 +72,8 @@ const char *class_menu =
 "  [C]leric\r\n"
 "  [T]hief\r\n"
 "  [W]arrior\r\n"
-"  [M]agic-user\r\n";
+"  [M]agic-user\r\n"
+"  [R]anger\r\n";
 
 
 
@@ -88,6 +91,7 @@ int parse_class(char arg)
   case 'c': return CLASS_CLERIC;
   case 'w': return CLASS_WARRIOR;
   case 't': return CLASS_THIEF;
+  case 'r': return CLASS_RANGER;
   default:  return CLASS_UNDEFINED;
   }
 }
@@ -141,12 +145,13 @@ bitvector_t find_class_bitvector(const char *arg)
 /* #define MIN_PER_PRAC		2  min percent gain in skill per practice */
 /* #define PRAC_TYPE		3  should it say 'spell' or 'skill'?	*/
 
-int prac_params[4][NUM_CLASSES] = {
-  /* MAG	CLE	THE	WAR */
-  { 95,		95,	85,	80	},	/* learned level */
-  { 100,	100,	12,	12	},	/* max per practice */
-  { 25,		25,	0,	0	},	/* min per practice */
-  { SPELL,	SPELL,	SKILL,	SKILL	},	/* prac name */
+int prac_params[5][NUM_CLASSES] = {
+  /* MAG	CLE	THE	WAR RAN */
+  { 95,		95,	85,	80, 85 },	/* learned level */
+  { 100,	100,	12,	12, 15	},	/* max per practice */
+  { 25,		25,	0,	0, 5	},	/* min per practice */
+  { SPELL,	SPELL,	SKILL,	SKILL, SKILL	},
+  	/* prac name */
 };
 
 
@@ -667,6 +672,248 @@ byte saving_throws(int class_num, int type, int level)
       case 40: return  0;
       default:
 	log("SYSERR: Missing level for cleric spell saving throw.");
+	break;
+      }
+    default:
+      log("SYSERR: Invalid saving throw type.");
+      break;
+    }
+    break;
+  case CLASS_RANGER:
+    switch (type) {
+    case SAVING_PARA:	/* Paralyzation */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 64;
+      case  2: return 63;
+      case  3: return 62;
+      case  4: return 61;
+      case  5: return 59;
+      case  6: return 58;
+      case  7: return 57;
+      case  8: return 56;
+      case  9: return 55;
+      case 10: return 53;
+      case 11: return 51;
+      case 12: return 51;
+      case 13: return 51;
+      case 14: return 50;
+      case 15: return 49;
+      case 16: return 59;
+      case 17: return 48;
+      case 18: return 47;
+      case 19: return 46;
+      case 20: return 45;
+      case 21: return 44;
+      case 22: return 43;
+      case 23: return 42;
+      case 24: return 41;
+      case 25: return 38;
+      case 26: return 36;
+      case 27: return 34;
+      case 28: return 32;
+      case 29: return 30;
+      case 30: return  0;
+      case 31: return  0;
+      case 32: return  0;
+      case 33: return  0;
+      case 34: return  0;
+      case 35: return  0;
+      case 36: return  0;
+      case 37: return  0;
+      case 38: return  0;
+      case 39: return  0;
+      case 40: return  0;
+      default:
+	log("SYSERR: Missing level for ranger paralyzation saving throw.");
+	break;
+      }
+    case SAVING_ROD:	/* Rods */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 70;
+      case  2: return 68;
+      case  3: return 66;
+      case  4: return 64;
+      case  5: return 62;
+      case  6: return 60;
+      case  7: return 58;
+      case  8: return 56;
+      case  9: return 54;
+      case 10: return 52;
+      case 11: return 50;
+      case 12: return 48;
+      case 13: return 46;
+      case 14: return 44;
+      case 15: return 42;
+      case 16: return 40;
+      case 17: return 38;
+      case 18: return 36;
+      case 19: return 34;
+      case 20: return 32;
+      case 21: return 30;
+      case 22: return 28;
+      case 23: return 26;
+      case 24: return 24;
+      case 25: return 22;
+      case 26: return 20;
+      case 27: return 18;
+      case 28: return 16;
+      case 29: return 14;
+      case 30: return 13;
+      case 31: return  0;
+      case 32: return  0;
+      case 33: return  0;
+      case 34: return  0;
+      case 35: return  0;
+      case 36: return  0;
+      case 37: return  0;
+      case 38: return  0;
+      case 39: return  0;
+      case 40: return  0;
+      default:
+	log("SYSERR: Missing level for ranger rod saving throw.");
+	break;
+      }
+    case SAVING_PETRI:	/* Petrification */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 60;
+      case  2: return 59;
+      case  3: return 58;
+      case  4: return 58;
+      case  5: return 56;
+      case  6: return 55;
+      case  7: return 54;
+      case  8: return 53;
+      case  9: return 52;
+      case 10: return 51;
+      case 11: return 50;
+      case 12: return 49;
+      case 13: return 48;
+      case 14: return 47;
+      case 15: return 46;
+      case 16: return 45;
+      case 17: return 44;
+      case 18: return 43;
+      case 19: return 42;
+      case 20: return 41;
+      case 21: return 40;
+      case 22: return 39;
+      case 23: return 38;
+      case 24: return 37;
+      case 25: return 36;
+      case 26: return 35;
+      case 27: return 34;
+      case 28: return 33;
+      case 29: return 32;
+      case 30: return 31;
+      case 31: return 30;
+      case 32: return 29;
+      case 33: return 26;
+      case 34: return  0;
+      case 35: return  0;
+      case 36: return  0;
+      case 37: return  0;
+      case 38: return  0;
+      case 39: return  0;
+      case 40: return  0;
+      default:
+	log("SYSERR: Missing level for ranger petrification saving throw.");
+	break;
+      }
+    case SAVING_BREATH:	/* Breath weapons */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 80;
+      case  2: return 79;
+      case  3: return 78;
+      case  4: return 77;
+      case  5: return 76;
+      case  6: return 75;
+      case  7: return 74;
+      case  8: return 73;
+      case  9: return 72;
+      case 10: return 71;
+      case 11: return 70;
+      case 12: return 69;
+      case 13: return 68;
+      case 14: return 67;
+      case 15: return 66;
+      case 16: return 65;
+      case 17: return 64;
+      case 18: return 63;
+      case 19: return 62;
+      case 20: return 61;
+      case 21: return 60;
+      case 22: return 59;
+      case 23: return 58;
+      case 24: return 57;
+      case 25: return 56;
+      case 26: return 55;
+      case 27: return 54;
+      case 28: return 53;
+      case 29: return 52;
+      case 30: return 51;
+      case 31: return  0;
+      case 32: return  0;
+      case 33: return  0;
+      case 34: return  0;
+      case 35: return  0;
+      case 36: return  0;
+      case 37: return  0;
+      case 38: return  0;
+      case 39: return  0;
+      case 40: return  0;
+      default:
+	log("SYSERR: Missing level for ranger breath saving throw.");
+	break;
+      }
+    case SAVING_SPELL:	/* Generic spells */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 75;
+      case  2: return 73;
+      case  3: return 71;
+      case  4: return 69;
+      case  5: return 67;
+      case  6: return 65;
+      case  7: return 63;
+      case  8: return 61;
+      case  9: return 59;
+      case 10: return 57;
+      case 11: return 55;
+      case 12: return 53;
+      case 13: return 51;
+      case 14: return 49;
+      case 15: return 47;
+      case 16: return 45;
+      case 17: return 43;
+      case 18: return 41;
+      case 19: return 39;
+      case 20: return 37;
+      case 21: return 35;
+      case 22: return 33;
+      case 23: return 31;
+      case 24: return 29;
+      case 25: return 27;
+      case 26: return 25;
+      case 27: return 23;
+      case 28: return 21;
+      case 29: return 19;
+      case 30: return 17;
+      case 31: return  0;
+      case 32: return  0;
+      case 33: return  0;
+      case 34: return  0;
+      case 35: return  0;
+      case 36: return  0;
+      case 37: return  0;
+      case 38: return  0;
+      case 39: return  0;
+      case 40: return  0;
+      default:
+	log("SYSERR: Missing level for ranger spell saving throw.");
 	break;
       }
     default:
@@ -1380,6 +1627,46 @@ int thaco(int class_num, int level)
     default:
       log("SYSERR: Missing level for warrior thac0.");
     }
+  case CLASS_RANGER:
+    switch (level) {
+    case  0: return 100;
+    case  1: return  20;
+    case  2: return  20;
+    case  3: return  18;
+    case  4: return  17;
+    case  5: return  16;
+    case  6: return  16;
+    case  7: return  15;
+    case  8: return  15;
+    case  9: return  14;
+    case 10: return  13;
+    case 11: return  12;
+    case 12: return  11;
+    case 13: return  10;
+    case 14: return  10;
+    case 15: return  10;
+    case 16: return  10;
+    case 17: return   9;
+    case 18: return   9;
+    case 19: return   8;
+    case 20: return   8;
+    case 21: return   7;
+    case 22: return   7;
+    case 23: return   7;
+    case 24: return   6;
+    case 25: return   6;
+    case 26: return   5;
+    case 27: return   4;
+    case 28: return   4;
+    case 29: return   3;
+    case 30: return   2;
+    case 31: return   1;
+    case 32: return   1;
+    case 33: return   1;
+    case 34: return   1;
+    default:
+      log("SYSERR: Missing level for ranger thac0.");
+    }
   default:
     log("SYSERR: Unknown class in thac0 chart.");
   }
@@ -1456,6 +1743,14 @@ void roll_real_abils(struct char_data *ch)
     if (ch->real_abils.str == 18)
       ch->real_abils.str_add = rand_number(0, 100);
     break;
+  case CLASS_RANGER:
+      ch->real_abils.intel = table[0];
+      ch->real_abils.wis = table[1];
+      ch->real_abils.dex = table[2];
+      ch->real_abils.str = table[3];
+      ch->real_abils.con = table[4];
+      ch->real_abils.cha = table[5];
+    break;
   }
   ch->aff_abils = ch->real_abils;
 }
@@ -1492,6 +1787,9 @@ void do_start(struct char_data *ch)
     break;
 
   case CLASS_WARRIOR:
+    break;
+
+  case CLASS_RANGER:
     break;
   }
 

@@ -103,6 +103,7 @@ const char *trade_letters[] = {
         "Thief",
         "Warrior",
 		"Necromancer",
+        "Ranger",
         "\n"
 };
 
