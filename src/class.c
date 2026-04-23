@@ -2011,7 +2011,7 @@ void init_spell_levels(void)
   /* RANGERS */
   spell_level(SKILL_SNEAK, CLASS_RANGER, 1);
   spell_level(SKILL_KICK, CLASS_RANGER, 3);
-  spell_level(SKILL_TRACK, CLASS_RAGNER, 6);
+  spell_level(SKILL_TRACK, CLASS_RANGER, 6);
   spell_level(SKILL_DODGE, CLASS_RANGER, 8);
 }
 
