@@ -140,7 +140,8 @@ int is_ok_char(struct char_data *keeper, struct char_data *ch, int shop_nr)
       (IS_CLERIC(ch) && NOTRADE_CLERIC(shop_nr)) ||
       (IS_THIEF(ch) && NOTRADE_THIEF(shop_nr)) ||
       (IS_WARRIOR(ch) && NOTRADE_WARRIOR(shop_nr)) ||
-      (IS_NECROMANCER(ch) && NOTRADE_NECROMANCER(shop_nr))) {
+      (IS_NECROMANCER(ch) && NOTRADE_NECROMANCER(shop_nr)) ||
+      (IS_RANGER(ch) && NOTRADE_RANGER(shop_nr))) {
     snprintf(buf, sizeof(buf), "%s %s", GET_NAME(ch), MSG_NO_SELL_CLASS);
     do_tell(keeper, buf, cmd_tell, 0);
     return (FALSE);
