@@ -177,6 +177,8 @@ SPECIAL(guild)
     return (TRUE);
   }
   if (GET_SKILL(ch, skill_num) >= LEARNED(ch)) {
+	send_to_char(ch, "GET_SKILL is %d.\r\n", GET_SKILL(ch, skill_num));
+	  send_to_char(ch, "LEARNED is %d.\r\n", LEARNED(ch));
     send_to_char(ch, "You are already learned in that area.\r\n");
     return (TRUE);
   }
