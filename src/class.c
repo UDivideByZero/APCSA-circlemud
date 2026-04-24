@@ -1961,6 +1961,7 @@ void init_spell_levels(void)
   spell_level(SPELL_CHARM, CLASS_MAGIC_USER, 16);
   spell_level(SPELL_ENCHANT_WEAPON, CLASS_MAGIC_USER, 26);
   spell_level(SPELL_CLONE, CLASS_MAGIC_USER, 30);
+  spell_level(SPELL_CHAIN_LIGHTNING, CLASS_MAGIC_USER, 20);
 
   /* CLERICS */
   spell_level(SPELL_CURE_LIGHT, CLASS_CLERIC, 1);
