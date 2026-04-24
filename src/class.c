@@ -170,9 +170,10 @@ struct guild_info_type guild_info[] = {
 
 /* Midgaard */
   { CLASS_MAGIC_USER,	3017,	SCMD_SOUTH	},
-  { CLASS_CLERIC,	3004,	SCMD_NORTH	},
+  { CLASS_RANGER,	3004,	SCMD_NORTH	},
   { CLASS_THIEF,	3027,	SCMD_EAST	},
   { CLASS_WARRIOR,	3021,	SCMD_EAST	},
+  { CLASS_CLERIC,	3004,	SCMD_NORTH	},
 
 /* Brass Dragon */
   { -999 /* all */ ,	5065,	SCMD_WEST	},
