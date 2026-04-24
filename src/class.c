@@ -1847,6 +1847,12 @@ void advance_level(struct char_data *ch)
     add_mana = 0;
     add_move = rand_number(1, 3);
     break;
+
+    case CLASS_RANGER:
+    add_hp += rand_number(9, 14);
+    add_mana = 0;
+    add_move = rand_number(1, 3);
+    break;
   }
 
   ch->points.max_hit += MAX(1, add_hp);
@@ -1915,6 +1921,9 @@ int invalid_class(struct char_data *ch, struct obj_data *obj)
     return TRUE;
 
   if (OBJ_FLAGGED(obj, ITEM_ANTI_NECROMANCER) && IS_NECROMANCER(ch))
+	  return TRUE;
+
+  if (OBJ_FLAGGED(obj, ITEM_ANTI_RANGER) && IS_RANGER(ch))
 	  return TRUE;
 
   return FALSE;
@@ -1998,6 +2007,12 @@ void init_spell_levels(void)
   spell_level(SKILL_RESCUE, CLASS_WARRIOR, 3);
   spell_level(SKILL_TRACK, CLASS_WARRIOR, 9);
   spell_level(SKILL_BASH, CLASS_WARRIOR, 12);
+
+  /* RANGERS */
+  spell_level(SKILL_SNEAK, CLASS_RANGER, 1);
+  spell_level(SKILL_KICK, CLASS_RANGER, 3);
+  spell_level(SKILL_TRACK, CLASS_RANGER, 6);
+  spell_level(SKILL_DODGE, CLASS_RANGER, 8);
 }
 
 
@@ -2138,6 +2153,44 @@ int level_exp(int chclass, int level)
       case 30: return 6650000;
       /* add new levels here */
       case LVL_IMMORT: return 7000000;
+    }
+    break;
+
+    case CLASS_RANGER:
+    switch (level) {
+      case  0: return 0;
+      case  1: return 1;
+      case  2: return 1500;
+      case  3: return 3000;
+      case  4: return 6500;
+      case  5: return 13000;
+      case  6: return 26000;
+      case  7: return 52000;
+      case  8: return 100000;
+      case  9: return 200000;
+      case 10: return 300000;
+      case 11: return 520000;
+      case 12: return 750000;
+      case 13: return 1000000;
+      case 14: return 1150000;
+      case 15: return 1400000;
+      case 16: return 1750000;
+      case 17: return 2250000;
+      case 18: return 2750000;
+      case 19: return 3250000;
+      case 20: return 3500000;
+      case 21: return 3750000;
+      case 22: return 4050000;
+      case 23: return 4200000;
+      case 24: return 4650000;
+      case 25: return 5000000;
+      case 26: return 5500000;
+      case 27: return 6000000;
+      case 28: return 6450000;
+      case 29: return 7000000;
+      case 30: return 7250000;
+      /* add new levels here */
+      case LVL_IMMORT: return 7500000;
     }
     break;
 
@@ -2301,6 +2354,36 @@ const char *title_male(int chclass, int level)
     }
     break;
 
+    case CLASS_RANGER:
+    switch (level) {
+      case  1: return "the Swift Footed";
+      case  2: return "the Pupil of The Scout";
+      case  3: return "the Ranger";
+      case  4: return "the Shadow of the Wilds";
+      case  5: return "the Silent Tracker";
+      case  6: return "the Scout of the High Pass";
+      case  7: return "the Hawk's Shadow";
+      case  8: return "the Lone Wayfarer";
+      case  9: return "the King's Forester";
+      case 10: return "the Deepwood Stalker";
+      case 11: return "the Duskwalk Scout";
+      case 12: return "the Ashen Tracker";
+      case 13: return "the Guardian of the Vale";
+      case 14: return "the Ironwood Ranger";
+      case 15: return "the Wilds Watcher";
+      case 16: return "the King's Arrow";
+      case 17: return "the OakBound Hunter";
+      case 18: return "the Border Stalker";
+      case 19: return "the Huntsman of the Crown";
+      case 20: return "the Falcon's Eye";
+      /* no one ever thought up these titles 21-30 */
+      case LVL_IMMORT: return "the Immortal Archer";
+      case LVL_GOD: return "the son of Apollo";
+      case LVL_GRGOD: return "the God of rangers and huntsmen";
+      default: return "the Ranger";
+    }
+    break;
+
     case CLASS_WARRIOR:
     switch(level) {
       case  1: return "the Swordpupil";
@@ -2445,6 +2528,36 @@ const char *title_female(int chclass, int level)
       case LVL_GOD: return "the Demi Goddess of thieves";
       case LVL_GRGOD: return "the Goddess of thieves and tradesmen";
       default: return "the Thief";
+    }
+    break;
+
+    case CLASS_RANGER:
+    switch (level) {
+      case  1: return "the Swift Footed";
+      case  2: return "the Pupil of The Scout";
+      case  3: return "the Ranger";
+      case  4: return "the Shadow of the Wilds";
+      case  5: return "the Silent Tracker";
+      case  6: return "the Scout of the High Pass";
+      case  7: return "the Hawk-Eyed Tracker";
+      case  8: return "the Mistress of the Hunt";
+      case  9: return "the Queen's Forester";
+      case 10: return "the Deepwood Stalker";
+      case 11: return "the Duskwalk Scout";
+      case 12: return "the Ashen Tracker";
+      case 13: return "the Guardian of the Vale";
+      case 14: return "the Ironwood Ranger";
+      case 15: return "the Wilds Watcher";
+      case 16: return "the Queen's Arrow";
+      case 17: return "the OakBound Hunter";
+      case 18: return "the Thornwarden Lady";
+      case 19: return "the Huntress of the Crown";
+      case 20: return "the Falcon's Huntress";
+      /* no one ever thought up these titles 21-30 */
+      case LVL_IMMORT: return "the Immortal Greencloak Maiden";
+      case LVL_GOD: return "the daughter of Aphrodite";
+      case LVL_GRGOD: return "the Goddess of range";
+      default: return "the Ranger";
     }
     break;
 
