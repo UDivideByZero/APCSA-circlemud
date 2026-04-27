@@ -145,12 +145,12 @@ bitvector_t find_class_bitvector(const char *arg)
 /* #define MIN_PER_PRAC		2  min percent gain in skill per practice */
 /* #define PRAC_TYPE		3  should it say 'spell' or 'skill'?	*/
 
-int prac_params[5][NUM_CLASSES] = {
-  /* MAG	CLE	THE	WAR RAN */
-  { 95,		95,	85,	80, 85 },	/* learned level */
-  { 100,	100,	12,	12, 15	},	/* max per practice */
-  { 25,		25,	0,	0, 5	},	/* min per practice */
-  { SPELL,	SPELL,	SKILL,	SKILL, SKILL	},
+int prac_params[4][NUM_CLASSES] = {
+  /* MAG	CLE	THE	WAR NEC RAN */
+  { 95,		95,	85,	80, 95, 85 },	/* learned level */
+  { 100,	100,	12,	12, 100, 15	},	/* max per practice */
+  { 25,		25,	0,	0, 25, 5	},	/* min per practice */
+  { SPELL,	SPELL,	SKILL,	SKILL, SPELL, SKILL	},
   	/* prac name */
 };
 
