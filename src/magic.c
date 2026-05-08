@@ -255,6 +255,10 @@ int mag_damage(int level, struct char_data *ch, struct char_data *victim,
     dam = dice(2, 8) + level;
     break;
 
+  case SPELL_CHAIN_LIGHTNING:
+    dam = dice(10, 8) + level;
+    break;
+  
   } /* switch(spellnum) */
 
 
